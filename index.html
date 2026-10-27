@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="NiskMoji - Emojis, stickers y packs para Discord."
+  >
+
+  <title>NiskMoji — Emojis & Stickers</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==============================
+       NAVBAR
+  =============================== -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      <span class="logo-icon">✨</span>
+      <span>NiskMoji</span>
+    </div>
+
+    <nav class="main-nav">
+
+      <button
+        class="nav-btn active"
+        data-section="home"
+      >
+        🏠 Inicio
+      </button>
+
+      <button
+        class="nav-btn"
+        data-section="emojis"
+      >
+        😀 Emojis
+      </button>
+
+      <button
+        class="nav-btn"
+        data-section="stickers"
+      >
+        🏷️ Stickers
+      </button>
+
+      <button
+        class="nav-btn"
+        data-section="packs"
+      >
+        📦 Packs
+      </button>
+
+      <button
+        class="nav-btn"
+        data-section="favorites"
+      >
+        ⭐ Favoritos
+      </button>
+
+    </nav>
+
+    <div class="nav-actions">
+
+      <button
+        id="themeButton"
+        class="icon-button"
+        title="Cambiar tema"
+      >
+        🌙
+      </button>
+
+      <button
+        id="mobileMenuButton"
+        class="icon-button mobile-menu-button"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==============================
+       MOBILE MENU
+  =============================== -->
+
+  <div
+    id="mobileMenu"
+    class="mobile-menu"
+  >
+
+    <button data-section="home">
+      🏠 Inicio
+    </button>
+
+    <button data-section="emojis">
+      😀 Emojis
+    </button>
+
+    <button data-section="stickers">
+      🏷️ Stickers
+    </button>
+
+    <button data-section="packs">
+      📦 Packs
+    </button>
+
+    <button data-section="favorites">
+      ⭐ Favoritos
+    </button>
+
+  </div>
+
+
+  <main>
+
+    <!-- ==============================
+         HOME
+    =============================== -->
+
+    <section
+      id="home"
+      class="section active"
+    >
+
+      <div class="hero">
+
+        <div class="hero-content">
+
+          <span class="badge">
+            DISCORD EMOJIS & STICKERS
+          </span>
+
+          <h1>
+            Dale personalidad
+            <span>a tu Discord.</span>
+          </h1>
+
+          <p>
+            Descubre emojis, stickers y packs para
+            personalizar tu comunidad.
+          </p>
+
+          <div class="hero-buttons">
+
+            <button
+              class="primary-btn"
+              onclick="showSection('emojis')"
+            >
+              😀 Explorar emojis
+            </button>
+
+            <button
+              class="secondary-btn"
+              onclick="showSection('stickers')"
+            >
+              🏷️ Explorar stickers
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-art">
+
+          <div class="hero-glow"></div>
+
+          <div class="hero-main-emoji">
+            ✨
+          </div>
+
+          <div class="floating-item floating-one">
+            😀
+          </div>
+
+          <div class="floating-item floating-two">
+            🔥
+          </div>
+
+          <div class="floating-item floating-three">
+            💖
+          </div>
+
+          <div class="floating-item floating-four">
+            😎
+          </div>
+
+          <div class="floating-item floating-five">
+            🎮
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            😀
+          </div>
+
+          <strong id="emojiCount">
+            0
+          </strong>
+
+          <span>
+            Emojis
+          </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            🏷️
+          </div>
+
+          <strong id="stickerCount">
+            0
+          </strong>
+
+          <span>
+            Stickers
+          </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            📦
+          </div>
+
+          <strong id="packCount">
+            0
+          </strong>
+
+          <span>
+            Packs
+          </span>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon">
+            ⭐
+          </div>
+
+          <strong id="favoriteCount">
+            0
+          </strong>
+
+          <span>
+            Favoritos
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- POPULARES -->
+
+      <div class="content-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="small-title">
+              DESTACADOS
+            </span>
+
+            <h2>
+              Emojis populares
+            </h2>
+
+          </div>
+
+          <button
+            class="text-button"
+            onclick="showSection('emojis')"
+          >
+            Ver todos →
+          </button>
+
+        </div>
+
+
+        <div
+          id="featuredEmojis"
+          class="emoji-grid"
+        ></div>
+
+      </div>
+
+
+      <!-- PACK DESTACADO -->
+
+      <div class="featured-pack">
+
+        <div class="featured-pack-content">
+
+          <span class="small-title">
+            PACK DESTACADO
+          </span>
+
+          <h2>
+            Nisk Community Pack
+          </h2>
+
+          <p>
+            Una colección de emojis y stickers
+            para comunidades de Discord.
+          </p>
+
+          <button
+            class="primary-btn"
+            onclick="showSection('packs')"
+          >
+            📦 Ver pack
+          </button>
+
+        </div>
+
+        <div class="featured-pack-art">
+          💜✨🎮
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         EMOJIS
+    =============================== -->
+
+    <section
+      id="emojis"
+      class="section"
+    >
+
+      <div class="page-header">
+
+        <span class="small-title">
+          BIBLIOTECA
+        </span>
+
+        <h1>
+          Emojis
+        </h1>
+
+        <p>
+          Encuentra emojis para cualquier ocasión.
+        </p>
+
+      </div>
+
+
+      <div class="search-box">
+
+        <span>
+          🔎
+        </span>
+
+        <input
+          id="emojiSearch"
+          type="search"
+          placeholder="Buscar emojis..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div
+        id="emojiCategories"
+        class="categories"
+      ></div>
+
+
+      <div
+        id="emojiGrid"
+        class="emoji-grid"
+      ></div>
+
+
+      <div
+        id="emojiEmpty"
+        class="empty-state hidden"
+      >
+
+        <div>
+          🔎
+        </div>
+
+        <h3>
+          No encontramos emojis
+        </h3>
+
+        <p>
+          Prueba con otra búsqueda o categoría.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         STICKERS
+    =============================== -->
+
+    <section
+      id="stickers"
+      class="section"
+    >
+
+      <div class="page-header">
+
+        <span class="small-title">
+          BIBLIOTECA
+        </span>
+
+        <h1>
+          Stickers
+        </h1>
+
+        <p>
+          Reacciones y stickers para tu servidor.
+        </p>
+
+      </div>
+
+
+      <div class="search-box">
+
+        <span>
+          🔎
+        </span>
+
+        <input
+          id="stickerSearch"
+          type="search"
+          placeholder="Buscar stickers..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <div
+        id="stickerCategories"
+        class="categories"
+      ></div>
+
+
+      <div
+        id="stickerGrid"
+        class="sticker-grid"
+      ></div>
+
+
+      <div
+        id="stickerEmpty"
+        class="empty-state hidden"
+      >
+
+        <div>
+          🔎
+        </div>
+
+        <h3>
+          No encontramos stickers
+        </h3>
+
+        <p>
+          Prueba con otra búsqueda o categoría.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PACKS
+    =============================== -->
+
+    <section
+      id="packs"
+      class="section"
+    >
+
+      <div class="page-header">
+
+        <span class="small-title">
+          COLECCIONES
+        </span>
+
+        <h1>
+          Packs
+        </h1>
+
+        <p>
+          Colecciones completas para tu servidor.
+        </p>
+
+      </div>
+
+
+      <div
+        id="packGrid"
+        class="pack-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- ==============================
+         FAVORITOS
+    =============================== -->
+
+    <section
+      id="favorites"
+      class="section"
+    >
+
+      <div class="page-header">
+
+        <span class="small-title">
+          TU COLECCIÓN
+        </span>
+
+        <h1>
+          ⭐ Favoritos
+        </h1>
+
+        <p>
+          Guarda tus emojis y stickers favoritos.
+        </p>
+
+      </div>
+
+
+      <div
+        id="favoriteGrid"
+        class="emoji-grid"
+      ></div>
+
+
+      <div
+        id="favoriteEmpty"
+        class="empty-state"
+      >
+
+        <div>
+          ⭐
+        </div>
+
+        <h3>
+          Todavía no tienes favoritos
+        </h3>
+
+        <p>
+          Pulsa la estrella de cualquier emoji
+          o sticker para guardarlo.
+        </p>
+
+        <button
+          class="primary-btn"
+          onclick="showSection('emojis')"
+        >
+          Explorar emojis
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==============================
+       FOOTER
+  =============================== -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <div class="footer-logo">
+          ✨ NiskMoji
+        </div>
+
+        <p>
+          Emojis, stickers y packs para Discord.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <button onclick="showSection('emojis')">
+          Emojis
+        </button>
+
+        <button onclick="showSection('stickers')">
+          Stickers
+        </button>
+
+        <button onclick="showSection('packs')">
+          Packs
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 NiskMoji
+      </span>
+
+      <span>
+        Hecho para comunidades de Discord 💜
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ==============================
+       TOAST
+  =============================== -->
+
+  <div
+    id="toast"
+    class="toast"
+  >
+    <span id="toastIcon">
+      ✓
+    </span>
+
+    <span id="toastMessage">
+      Listo
+    </span>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
